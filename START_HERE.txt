@@ -1,0 +1,25 @@
+RUN LOCALLY (Windows, VS Code) - open TWO terminals
+
+IMPORTANT (first time after this update): delete the old  backend\db.sqlite3  file and the old
+backend\placements\migrations folder from your machine, then use the new project files. The data model changed
+(company approval date/reason, apply-form fields) and migrations are now included in the project.
+
+TERMINAL 1 - Backend
+  cd backend
+  python -m venv venv
+  .\venv\Scripts\activate
+  python -m pip install -r requirements.txt
+  python manage.py migrate
+  python manage.py seed_demo_data      (creates admin + demo companies/students/applications)
+  python manage.py runserver
+
+TERMINAL 2 - Frontend
+  cd frontend
+  npm install
+  npm run dev
+
+Open the link shown by npm (http://localhost:5173 or 5174).
+Logins: admin/admin1234 | students e.g. ananya/Student@123 | companies e.g. infosys/Company@123
+
+If PowerShell blocks activate, run once:
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned

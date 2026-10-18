@@ -1,0 +1,14 @@
+Django==5.0.6
+djangorestframework==3.15.1
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.3.1
+
+# Needed for deployment (harmless locally)
+gunicorn==22.0.0; sys_platform != "win32"
+whitenoise==6.7.0
+dj-database-url==2.2.0
+# PostgreSQL driver: only installed on the live Linux server, skipped on Windows
+psycopg2-binary==2.9.9; sys_platform != "win32"
+
+# Only needed if you switch to MySQL locally (see settings.py) - uncomment then:
+# PyMySQL==1.1.1
